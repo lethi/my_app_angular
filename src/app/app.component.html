@@ -1,0 +1,37 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>{{ title }}</h1>
+  <nav>
+    <a routerLink="/dashboard">Dashboard</a>
+    <!--A routerLink attribute is set to "/personnes", 
+      the string that the router matches to the route to PersonneComponent-->
+    <a routerLink="/allPersonnes">Liste de personnes</a>
+  </nav>
+
+  <!--remove <app-personne> because you will only display the 
+    PersonneComponent when the user navigates to it-->
+  <!-- <app-personne></app-personne> -->
+  
+   <!--replace the <app-personne> element with a <router-outlet> element
+    Le <router-outlet> indique au routeur où afficher les vues.-->
+
+  <router-outlet></router-outlet>
+
+  <br/><br/> <br/><br/><br/>
+
+  <!-- injecter ici le component 'messages' -->
+  <app-messages></app-messages>
+
+<!-- 
+<h2>Here are some links to help you start: </h2>
+<ul>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
+  </li>
+</ul> -->

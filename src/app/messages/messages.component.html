@@ -1,0 +1,11 @@
+<!--The *ngIf only displays the messages if the messages no empty-->
+<div *ngIf="msgService.messages.length">
+
+  <h2>Messages</h2>
+    <button class="clear"
+            (click) = "msgService.clearAllMessages()">supprimer
+    </button>
+
+  <div *ngFor='let m of msgService.messages'>{{m}}</div>
+
+</div>

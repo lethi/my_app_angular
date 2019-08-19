@@ -1,0 +1,26 @@
+
+ <!--mypers  et selected : classes Css déclarées dans 'personne.component.css' -->
+<ul class="mypers">
+    <!-- <li *ngFor="let pers of listPersonnes" 
+    [class.selected] = "pers === personne"
+    (click)="onSelect(pers)"> -->
+
+    <!--maintenant utiliser router-->
+    <li *ngFor="let pers of listPersonnes" >
+        <a routerLink="/personne-detail/{{pers.id}}">
+            <span class="badge">{{pers.id}}</span> ***{{pers.name}}
+        </a>
+    </li>
+</ul>
+
+<div>
+        <h3>Add new persone :</h3>
+        <label>name:
+            <input #persName/>
+        </label>
+    </div>
+     <!-- (click) passes input value to add() and then clear the input-->
+    <button (click)="add(persName.value); persName.value=''">add</button> 
+
+<!--injecter component enfant 'personne-detail' ici avec Input : 'personne' 
+<app-personne-detail [personne]="personne"></app-personne-detail>-->
