@@ -32,4 +32,4 @@ CMD ng serve --host 0.0.0.0
 ## Build the angular app in production mode and store the artifacts in dist folder
 # RUN $(npm bin)/ng build --prod
 
-#docker run -it  -v ${PWD}:/ng-app -v /ng-app/node_modules -p 4200:4200  --rm  my-image-angular-app
+# docker run -it -v  ${PWD}:/ng-app -v  /ng-app/node_modules -p 4200:4200  --rm  my-image-angular-app
