@@ -2,16 +2,9 @@
 FROM node:10.13.0
 
 ## install chrom 
-<<<<<<< 0364aff9dae47b4e78c60c78b4f4ecb5d316f1dc
 # RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
 # RUN sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
 # RUN apt-get update && apt-get install -yq google-chrome-stable
-=======
-RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-RUN sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-RUN apt-get update && apt-get install -yq google-chrome-stable
->>>>>>> update
-
  COPY package.json package-lock.json ./
  RUN npm set progress=false && npm config set depth 0 && npm cache clean --force
 
@@ -38,8 +31,4 @@ CMD ng serve --host 0.0.0.0
 ## Build the angular app in production mode and store the artifacts in dist folder
 # RUN $(npm bin)/ng build --prod
 
-<<<<<<< 0364aff9dae47b4e78c60c78b4f4ecb5d316f1dc
 # docker run -it -v  ${PWD}:/ng-app -v  /ng-app/node_modules -p 4200:4200  --rm  my-image-angular-app
-=======
-#docker run -it  -v ${PWD}:/ng-app -v /ng-app/node_modules -p 4200:4200  --rm  my-image-angular-app
->>>>>>> update
