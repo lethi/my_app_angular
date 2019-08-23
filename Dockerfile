@@ -5,8 +5,9 @@ FROM node:10.13.0
 # RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
 # RUN sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
 # RUN apt-get update && apt-get install -yq google-chrome-stable
- COPY package.json package-lock.json ./
- RUN npm set progress=false && npm config set depth 0 && npm cache clean --force
+
+COPY package.json package-lock.json ./
+RUN npm set progress=false && npm config set depth 0 && npm cache clean --force
 
 ## Storing node modules on a separate layer will prevent unnecessary npm installs at each build
 RUN npm i && mkdir /ng-app && cp -R ./node_modules ./ng-app
@@ -22,7 +23,7 @@ COPY package.json /ng-app/package.json
 #RUN npm install
 #RUN npm install -g @angular/cli
 
-# add app
+# Copy the current directory contents into the container at /ng-app
 COPY  .  /ng-app
 
 # start app
